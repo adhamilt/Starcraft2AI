@@ -7,6 +7,7 @@ from pysc2.lib import features
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
 _UNIT_TYPE = features.SCREEN_FEATURES.unit_type.index
 _SELECTED = features.SCREEN_FEATURES.selected.index
+_UNIT_HEALTH = features.SCREEN_FEATURES.unit_hit_points
 
 _PLAYER_FRIENDLY = 1
 _PLAYER_NEUTRAL = 3  # beacon/minerals
@@ -80,18 +81,20 @@ def ParseAction(obs,args):
         return NoOp()
 
 
-def PlayGame(env):
+def PlayGame(env,agent):
     obs = env.reset()
     env.action_spec()
+
 
     # Begin the Game!
     oldstep, newstep = 0, 0
     while newstep >= oldstep:
-        rnd = numpy.random.rand(6).tolist()
+        rnd = agent.step(obs[0])
         action = ParseAction(obs, rnd)
 
         score = obs[0].observation["score_cumulative"][0]
         obs = env.step([action])
         oldstep = newstep
         newstep = obs[0].observation["game_loop"][0]
+
     return score

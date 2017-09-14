@@ -3,13 +3,18 @@ import sys
 import gflags as flags
 from pysc2.env import sc2_env
 from PlayGame import PlayGame
+from RandomAgent import RandomAgent
+
+
 import tensorflow as tf
 
 import matplotlib.pyplot as plt
 
-
-
 FLAGS = flags.FLAGS
+
+
+agent = RandomAgent()
+
 
 
 #Setup the Game!
@@ -19,7 +24,7 @@ env = sc2_env.SC2Env("DefeatRoaches",step_mul=step_mul,visualize=False)
 
 score=[]
 for i in range(100):
-    score.append(PlayGame(env))
+    score.append(PlayGame(env,agent))
 
 n, bin, patches = plt.hist(score)
 plt.xlabel("Score")
