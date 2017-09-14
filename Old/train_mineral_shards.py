@@ -5,7 +5,7 @@ from baselines import deepq
 from pysc2.env import sc2_env
 from pysc2.lib import actions
 
-import deepq_mineral_shards
+from Old import deepq_mineral_shards
 
 _MOVE_SCREEN = actions.FUNCTIONS.Move_screen.id
 _SELECT_ARMY = actions.FUNCTIONS.select_army.id

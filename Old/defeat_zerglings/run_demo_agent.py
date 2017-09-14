@@ -1,13 +1,10 @@
 import sys
 
 import gflags as flags
-from baselines import deepq
+from defeat_zerglings import demo_agent
+from pysc2.env import run_loop
 from pysc2.env import sc2_env
 from pysc2.lib import actions
-from pysc2.env import run_loop
-
-from defeat_zerglings import demo_agent
-from maps import chris_maps
 
 _MOVE_SCREEN = actions.FUNCTIONS.Move_screen.id
 _SELECT_ARMY = actions.FUNCTIONS.select_army.id

@@ -5,7 +5,7 @@ from baselines import deepq
 from pysc2.env import sc2_env
 from pysc2.lib import actions
 
-from defeat_zerglings import dqfd
+from Old.defeat_zerglings import dqfd
 
 _MOVE_SCREEN = actions.FUNCTIONS.Move_screen.id
 _SELECT_ARMY = actions.FUNCTIONS.select_army.id

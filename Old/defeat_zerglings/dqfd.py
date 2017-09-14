@@ -1,25 +1,22 @@
-import numpy as np
 import os
-import dill
 import tempfile
-import tensorflow as tf
 import zipfile
 
 import baselines.common.tf_util as U
-
+import dill
+import gflags as flags
+import numpy as np
+import tensorflow as tf
+from baselines import deepq
 from baselines import logger
 from baselines.common.schedules import LinearSchedule
-from baselines import deepq
 from baselines.deepq.replay_buffer import ReplayBuffer, PrioritizedReplayBuffer
-
-from pysc2.lib import actions as sc2_actions
 from pysc2.env import environment
-from pysc2.lib import features
 from pysc2.lib import actions
+from pysc2.lib import actions as sc2_actions
+from pysc2.lib import features
 
-from defeat_zerglings import common
-
-import gflags as flags
+from Old.defeat_zerglings import common
 
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
 
@@ -324,12 +321,12 @@ def learn(env,
       if(len(player) == 2):
 
         if(player[0]>32):
-          new_screen = common.shift(LEFT, player[0]-32, new_screen)
+          new_screen = common.shift(LEFT, player[0] - 32, new_screen)
         elif(player[0]<32):
           new_screen = common.shift(RIGHT, 32 - player[0], new_screen)
 
         if(player[1]>32):
-          new_screen = common.shift(UP, player[1]-32, new_screen)
+          new_screen = common.shift(UP, player[1] - 32, new_screen)
         elif(player[1]<32):
           new_screen = common.shift(DOWN, 32 - player[1], new_screen)
 

@@ -10,7 +10,7 @@ from pysc2.lib import actions
 from pysc2.lib import actions as sc2_actions
 from pysc2.lib import features
 
-import deepq_mineral_shards
+from Old import deepq_mineral_shards
 
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
 _PLAYER_FRIENDLY = 1

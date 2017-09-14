@@ -4,18 +4,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import numpy
-
+import numpy as np
 from pysc2.agents import base_agent
 from pysc2.lib import actions
-
-from pysc2.lib import actions as sc2_actions
 from pysc2.lib import features
-from pysc2.lib import actions
 
-from defeat_zerglings import common
-
-import numpy as np
+from Old.defeat_zerglings import common
 
 _PLAYER_RELATIVE = features.SCREEN_FEATURES.player_relative.index
 
